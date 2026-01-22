@@ -6,6 +6,8 @@
 
 本项目为对 **https://github.com/Leclee/auto_bitbrowser** 的二次开发版本。
 
+系统使用 **BitBrowser 指纹浏览器**，通过本地 API（默认 `127.0.0.1:54345`）进行窗口与指纹配置控制。
+
 ---
 
 ## 🎯 使用背景与目标
