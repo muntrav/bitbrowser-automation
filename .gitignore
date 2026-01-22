@@ -43,10 +43,8 @@ error*.png
 *.ico
 
 # Exception: Keep specific community images
-!Telegram.jpg
-!Telegram.png
-!QQ.jpg
-!zanshang.jpg
+!zhanzhu_wx.jpg
+!zhanzhu_zfb.jpg
 
 # Exclude build artifacts and temp files
 build/
