@@ -8,6 +8,18 @@
 
 系统使用 **BitBrowser 指纹浏览器**，通过本地 API（默认 `127.0.0.1:54345`）进行窗口与指纹配置控制。
 
+## 📌 项目说明 / Project Note
+
+**中文**：
+- 只是看到别人的项目做着玩玩，没有弄很多号，也不是号商。
+- 主要想做自动绑卡与年龄验证。
+- 项目有很多 bug，后续也不会维护，开发者只是玩玩。
+
+**English**:
+- This is just a for-fun fork of someone else's project. I don't run many accounts and I'm not a seller.
+- The main goal is automated card binding and age verification.
+- The project has many bugs and won't be maintained; it's just a hobby project.
+
 ---
 
 ## 🎯 使用背景与目标
@@ -208,3 +220,85 @@ http://user:pass@host:port
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+
+---
+
+# Auto BitBrowser Management System (English)
+
+This is a **FastAPI + Vue 3 + Playwright/BitBrowser API** automation system for batch Google-account operations: account management, window management, 2FA setup/reset, eligibility verification, age verification, and card subscription binding.
+
+This repository is a secondary development of **https://github.com/Leclee/auto_bitbrowser**.
+
+The system uses **BitBrowser** and controls it via the local API (default `127.0.0.1:54345`).
+
+## Project Note
+
+- This is just a for-fun fork of someone else's project. I don't run many accounts and I'm not a seller.
+- The main goal is automated card binding and age verification.
+- The project has many bugs and won't be maintained; it's just a hobby project.
+
+## Features
+
+- Web UI: account management, search/filter, batch import/export, real-time logs/progress.
+- Browser window management: create/restore/sync/open/close.
+- Task orchestration with configurable concurrency.
+- 2FA automation: setup/reset and sync to browser config.
+- SheerID eligibility: link extraction + verification + status detection.
+- Age verification using virtual cards.
+- Card binding/subscription with iframe handling.
+- Multi-language handling and auto language switching.
+
+## Installation & Usage
+
+### Requirements
+
+- Python 3.11+ (recommended 3.12)
+- Node.js 18+
+- `uv` for Python env management
+- BitBrowser installed and API reachable
+
+### Environment Setup
+
+```bash
+pip install uv
+uv sync
+cd web/frontend
+npm install
+```
+
+### Quick Start (Web UI)
+
+```bash
+./start_web.sh
+```
+
+Access:
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/docs
+
+### Manual Start
+
+```bash
+# Backend
+uv run python -m uvicorn web.backend.main:app --reload --port 8000
+
+# Frontend
+cd web/frontend
+npm run dev
+```
+
+## Configuration
+
+- `accounts.txt`: email / password / recovery email / 2FA secret (optional)
+- `proxies.txt`: proxy list (optional)
+- `cards.txt`: virtual cards (fallback if Web config not set)
+- Web config page: SheerID API key + card info (preferred)
+
+## Outputs
+
+- `accounts.db`, `sheerIDlink.txt`, `已验证未绑卡.txt`, `已绑卡号.txt`, etc.
+
+## Disclaimer
+
+This project is for learning and experimentation only. Please comply with BitBrowser and platform policies. The author is not responsible for any account loss or legal issues.
