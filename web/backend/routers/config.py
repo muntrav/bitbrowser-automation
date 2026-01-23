@@ -69,12 +69,20 @@ async def get_all_config():
         "card_exp_year",
         "card_cvv",
         "card_zip",
+        "browser_window_limit",
     ]
 
     result = {}
     for key in config_keys:
         value = get_config(key)
-        result[key] = value or ""
+        if key == "browser_window_limit":
+            try:
+                parsed = int(value) if value is not None and value != "" else 50
+            except Exception:
+                parsed = 50
+            result[key] = parsed
+        else:
+            result[key] = value or ""
 
     return ConfigResponse(**result)
 
@@ -108,6 +116,10 @@ async def update_config(data: ConfigUpdate):
         set_config("card_zip", data.card_zip)
         updated.append("card_zip")
 
+    if data.browser_window_limit is not None:
+        set_config("browser_window_limit", str(data.browser_window_limit))
+        updated.append("browser_window_limit")
+
     return {"message": "配置已更新", "updated": updated}
 
 
@@ -125,3 +137,13 @@ def get_card_info() -> Dict[str, str]:
 def get_sheerid_api_key() -> str:
     """获取 SheerID API Key（供任务执行使用）"""
     return get_config("sheerid_api_key") or ""
+
+
+def get_browser_window_limit(default: int = 50) -> int:
+    """获取窗口上限（供任务执行使用）"""
+    value = get_config("browser_window_limit")
+    try:
+        limit = int(value) if value is not None and value != "" else default
+    except Exception:
+        return default
+    return limit if limit > 0 else default

@@ -18,7 +18,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from database import DBManager
 from ..schemas import TaskCreateRequest, TaskType, TaskStatus, TaskProgress, AccountProgressStatus
 from ..websocket import get_manager
-from .config import get_card_info, get_sheerid_api_key
+from .config import get_card_info, get_sheerid_api_key, get_browser_window_limit
 
 router = APIRouter()
 
@@ -190,8 +190,8 @@ def ensure_browser_window(email: str, log_callback=None) -> str | None:
         # 没有窗口，需要创建
         _log("账号没有浏览器窗口，正在自动创建...")
 
-        # 检查窗口数量限制（比特浏览器免费版限制 10 个窗口）
-        MAX_WINDOWS = 10  # 可根据用户配额调整
+        # 检查窗口数量限制（默认按会员 50 个窗口）
+        MAX_WINDOWS = get_browser_window_limit(50)
         browsers = get_browser_list(page=0, pageSize=1000)
 
         if len(browsers) >= MAX_WINDOWS:

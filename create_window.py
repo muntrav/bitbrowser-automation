@@ -505,6 +505,12 @@ def create_browser_window(account: dict, reference_browser_id: str = None, proxy
         json_data['port'] = ''
         json_data['proxyUserName'] = ''
         json_data['proxyPassword'] = ''
+
+    # 强制启用随机指纹（避免模板指纹重复）
+    json_data['randomFingerprint'] = True
+    json_data['isRandomFinger'] = True
+    json_data.pop('randomKey', None)
+    json_data.pop('randomKeyUser', None)
     
     
     # 检查是否已存在该账号的窗口

@@ -24,6 +24,7 @@ const config = ref({
   card_exp_year: '',
   card_cvv: '',
   card_zip: '',
+  browser_window_limit: 50,
 })
 
 const taskTypes = [
@@ -266,6 +267,17 @@ async function saveConfig() {
             >
               {{ configSaving ? '...' : '保存' }}
             </button>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1">窗口上限</label>
+            <input
+              type="number"
+              min="1"
+              v-model.number="config.browser_window_limit"
+              placeholder="50"
+              class="w-full px-2 py-1.5 border border-gray-300 rounded text-sm"
+            />
+            <div class="mt-1 text-[11px] text-gray-500">达到上限会删除最旧窗口</div>
           </div>
         </div>
       </div>

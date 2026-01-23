@@ -133,6 +133,7 @@ class ConfigUpdate(BaseModel):
     card_exp_year: Optional[str] = None
     card_cvv: Optional[str] = None
     card_zip: Optional[str] = None
+    browser_window_limit: Optional[int] = None
 
 
 class ConfigResponse(BaseModel):
@@ -143,3 +144,4 @@ class ConfigResponse(BaseModel):
     card_exp_year: str = ""
     card_cvv: str = ""
     card_zip: str = ""
+    browser_window_limit: int = 50
